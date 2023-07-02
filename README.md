@@ -28,7 +28,7 @@ this is a full-stack socail media posts for iqraaly
 
 ## server
 
-**server created using using express.js and nest js **
+server created using using express.js and nestjs
 
 ### express
 
