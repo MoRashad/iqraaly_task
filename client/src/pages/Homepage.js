@@ -16,8 +16,8 @@ const Homepage = () => {
     useEffect(() => {
         doFetch({ method: "GET" })
     }, [doFetch])
+
     const handleDeletePost = async (id) => {
-        // doFetch({ method: "DELETE" }, `/${id}`);
         axios.delete(`${process.env.REACT_APP_URL}/posts/${id}`).then((res) => {
             console.log(res);
             setItemDeleteMessage("Item deleted successfully")
@@ -40,7 +40,7 @@ const Homepage = () => {
             <div className="text-center flex mt-36 gap-6 flex-col justify-center items-center ">
                 {loading && <Loader />}
                 {
-                    data && data.map((item) => {
+                    (data && !error) && data.map((item) => {
                         return <React.Fragment key={item.id}>
                             <PostItem item={item} onItemDeleted={handleDeletePost} />
                         </React.Fragment>
